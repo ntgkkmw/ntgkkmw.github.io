@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メモ編集</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>メモ編集</h1>
+        <form id="edit-form">
+            <input type="text" id="edit-title" placeholder="タイトル" required>
+            <textarea id="edit-content" placeholder="内容" required></textarea>
+            <button type="submit">保存</button>
+        </form>
+        <button onclick="window.history.back()">戻る</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentMemo = JSON.parse(localStorage.getItem('currentMemo'));
+            const editTitle = document.getElementById('edit-title');
+            const editContent = document.getElementById('edit-content');
+            editTitle.value = currentMemo.title;
+            editContent.value = currentMemo.content;
+
+            document.getElementById('edit-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const updatedTitle = editTitle.value.trim();
+                const updatedContent = editContent.value.trim();
+                if (updatedTitle && updatedContent) {
+                    const memos = JSON.parse(localStorage.getItem('memos'));
+                    const index = memos.findIndex(memo => memo.title === currentMemo.title && memo.content === currentMemo.content);
+                    memos[index] = { title: updatedTitle, content: updatedContent };
+                    localStorage.setItem('memos', JSON.stringify(memos));
+                    window.location.href = 'index.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

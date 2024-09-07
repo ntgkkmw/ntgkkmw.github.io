@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+#memo-list {
+    list-style: none;
+    padding: 0;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.memo-item {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.memo-item .actions {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+button.edit, button.delete, button.view {
+    border: none;
+    background: #ffc107;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.delete {
+    background: #dc3545;
+}
+
+button.edit:hover {
+    background: #e0a800;
+}
+
+button.delete:hover {
+    background: #c82333;
+}
+
+button.view {
+    background: #007bff;
+}
+
+button.view:hover {
+    background: #0056b3;
+}
+
